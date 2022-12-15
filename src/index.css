@@ -1,0 +1,86 @@
+html,
+body,
+:global(#root) {
+  height: 100%;
+}
+@font-face {
+  font-family: "myFamily";
+  src: url("./assets/myfont.ttf");
+}
+.icon {
+  width: 1em;
+  height: 1em;
+  vertical-align: -0.15em;
+  fill: currentColor;
+  overflow: hidden;
+}
+.ant-message .ant-message-notice-content {
+  padding: 20px 20px;
+  background: #6b6b6b;
+  @media (min-width: 640px) {
+    padding: 20px 500px;
+  }
+}
+.ant-message-warning {
+  color: white;
+  font-size: 17px;
+  font-family: sans-serif;
+}
+:global(#update_groep) {
+  display: flex;
+}
+:global(#update_groep .ant-row) {
+  flex: 10;
+}
+:global(.groepButton) {
+  flex: 1;
+  padding-left: 8px;
+}
+:global(#dndButton) {
+  display: flex;
+  justify-content: flex-end;
+}
+:global(#languageSwitcher) {
+  width: 55px;
+  height: 55px;
+  border-radius: 4px;
+  background-color: white;
+  color: black;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-weight: 800;
+  user-select: none;
+  border-bottom: 1px solid black;
+}
+:global(#languageSwitcherWrapper) {
+  display: flex;
+  flex-direction: row-reverse;
+  cursor: pointer;
+}
+
+:global(#languagesList) {
+  width: 55px;
+  background-color: white;
+  color: black;
+  user-select: none;
+}
+:global(#languageOption) {
+  background-color: white;
+  width: 55px;
+  height: 55px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+  font-weight: 600;
+}
+:global(#barsMenuAndLanguageSwitcherWrapper) {
+  display: flex;
+  flex-direction: column;
+  position: absolute;
+  z-index: 50;
+  right: 20px;
+  top: 20px;
+  align-items: center;
+}

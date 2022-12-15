@@ -1,0 +1,23 @@
+.table {
+  color: white;
+  position: absolute;
+  top: 20px;
+  min-height: 50vh;
+  z-index: 20;
+  left: 2vw;
+  min-width: 96vw;
+  border-radius: 6px;
+  :global {
+    color: white;
+    background-color: rgb(172, 163, 163);
+    .ant-table-cell {
+      background-color: rgb(172, 163, 163);
+      color: white;
+    }
+    .ant-table-container,
+    .ant-table-content,
+    .ant-table-body {
+      background-color: rgb(172, 163, 163);
+    }
+  }
+}

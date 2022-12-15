@@ -1,0 +1,481 @@
+@import "./variables.less";
+
+.navBar {
+  @media (min-width: 640px) {
+    display: inline;
+  }
+}
+.navBar li div span {
+  color: white;
+  font-weight: 800;
+  font-size: 20px;
+}
+.nav {
+  color: black;
+  font-size: 18px;
+  font-weight: 400;
+  text-transform: uppercase;
+  @media (min-width: 790px) {
+    color: white;
+  }
+}
+
+.title {
+  :global {
+    .h1 {
+      color: white;
+      font-weight: normal;
+    }
+  }
+  font-size: 13pt;
+  line-height: 30pt;
+  text-align: center;
+  color: white;
+  @media (max-width: 640px) {
+    padding-top: 20px;
+  }
+  @media (min-width: 640px) {
+    font-weight: normal;
+    font-size: 62px;
+    line-height: 64px;
+    margin-top: 60px;
+  }
+  @media (min-width: 980px) {
+    font-size: 80px;
+    line-height: 75px;
+  }
+}
+.header {
+  @media (max-width: 640px) {
+    padding: 0 20px;
+  }
+
+  background: transparent;
+  background-color: transparent;
+}
+.menuPc {
+  display: none;
+  @media (min-width: 790px) {
+    display: inline;
+    ul {
+      display: flex;
+      justify-content: center;
+    }
+  }
+}
+.background {
+  @background();
+}
+
+.background::after {
+  @backgroundAfter();
+}
+.customHeader {
+  @customHeader();
+}
+.homeHeader {
+  @homeHeader();
+  box-shadow: 0 5px 15px 5px rgba(0, 0, 0, 0.1);
+  overflow: overlay;
+}
+
+//fullSpecials
+.full {
+  background: #ffffff;
+  padding-bottom: 30px;
+  margin-bottom: 50px;
+  @media (min-width: 640px) {
+    margin-bottom: 0px;
+  }
+}
+.fullSpecials {
+  width: 90%;
+  max-width: 1080px;
+  margin: 0 auto;
+
+  :global {
+    .ant-typography {
+      font-size: 100%;
+      font-weight: normal;
+    }
+    .ant-typography a {
+      color: #555555;
+      text-decoration: underline;
+      font-size: 120%;
+      font-weight: normal;
+    }
+    .ant-typography a:hover {
+      color: #8a0c0c;
+    }
+  }
+}
+//explorer selector
+
+.explorerSelector {
+  width: 100%;
+  margin-bottom: 20px;
+  border: 3px solid @primary-color;
+  border-radius: 4px;
+  padding: 1px;
+  font-weight: bold;
+
+  :global {
+    .ant-select {
+      width: 100%;
+    }
+    .ant-select-selection,
+    .ant-select-selection--single {
+      color: white;
+      background: black;
+    }
+    div span i {
+      color: white;
+    }
+  }
+  @media (min-width: 640px) {
+    display: none;
+    margin-bottom: 0;
+  }
+}
+//categorie
+
+.categorie {
+  display: none;
+
+  @media (min-width: 640px) {
+    background: transparent;
+    float: left;
+    margin-right: 5%;
+    display: block;
+    overflow-y: auto;
+    height: 70vh;
+    margin-right: -100px;
+    padding-right: 100px;
+  }
+}
+.productpage,
+.productPageWhenScroll {
+  :global {
+    .ant-typography {
+      font-size: 20px;
+      font-weight: 600;
+      margin-bottom: 10px;
+    }
+  }
+  width: 100%;
+
+  @media (min-width: 640px) {
+    width: 70%;
+    float: left;
+  }
+}
+.productPageWhenScroll {
+  @media (min-width: 640px) {
+    // margin-left: 25%;
+    margin-top: 80px;
+  }
+}
+.winkelwagen,
+.winkelwagenWhenScroll {
+  display: none;
+  @media (min-width: 640px) {
+    background: transparent;
+    width: 25%;
+    margin-left: 5%;
+    float: left;
+    background: #fff;
+    border: 2px solid black;
+    padding: 8px;
+    display: block;
+    overflow-y: auto;
+    max-height: 70vh;
+  }
+}
+.winkelwagenWhenScroll {
+  @media (min-width: 640px) {
+    margin-left: 75%;
+  }
+}
+.winkelwagenDrawer {
+  @media (min-width: 640px) {
+    display: none;
+  }
+}
+
+.fullTitle {
+  @fullTitle();
+  .ons {
+    @firstRowTitle();
+  }
+}
+
+.fullTitle::after {
+  @titleDivider();
+}
+
+.horizontalMenu,
+.horizontalMenuWhenScroll {
+  display: none;
+  @media (min-width: 640px) {
+    display: block;
+    margin: 30px auto;
+    padding: 0 10px;
+    width: 90%;
+    background-color: black;
+    box-shadow: 0px 2px 30px grey;
+    border-radius: 15px;
+  }
+}
+.horizontalMenuWhenScroll {
+  margin-top: 0px;
+}
+//winkelwagen
+.winkelwagenTitle {
+  @media (min-width: 640px) {
+    padding-left: 20px;
+  }
+  h2 span {
+    text-transform: uppercase;
+    font-size: 20px;
+    width: 100%;
+    height: 100%;
+    font-weight: 600;
+    color: #fff;
+    line-height: 60px;
+
+    @media (min-width: 640px) {
+      color: #121212;
+      cursor: auto;
+      line-height: normal;
+    }
+  }
+}
+
+.barsMenu {
+  display: flex;
+  flex-direction: row-reverse;
+  margin: 30px 0;
+  background: none;
+  border: none;
+  line-height: 0px;
+  @media (min-width: 790px) {
+    display: none;
+  }
+}
+.infoIcon {
+  padding-right: 4px;
+  font-size: 26px;
+  @media (min-width: 640px) {
+    display: none;
+  }
+}
+.infoIcon:hover {
+  cursor: pointer;
+}
+.iconMenu {
+  font-size: 28px;
+  // position:absolute;
+  vertical-align: -0.25em;
+  margin-left: 4px;
+}
+.iconMenu:hover {
+  cursor: pointer;
+}
+.iconBackTop span {
+  height: 40px;
+  width: 40px;
+  background-color: #656565;
+  padding-top: 10px;
+  border-radius: 25px;
+}
+
+.barsBtn {
+  display: block;
+  width: 20px;
+  height: 2px;
+  background: #1890ff;
+  position: relative;
+}
+.barsBtn:after,
+.barsBtn:before {
+  content: attr(x);
+  width: 20px;
+  position: absolute;
+  top: -6px;
+  left: 0;
+  height: 2px;
+  background: #1890ff;
+}
+.barsBtn:after {
+  top: auto;
+  bottom: -6px;
+}
+.menukaartParent,
+.bestellijstParent {
+  text-align: center;
+}
+.menukaartRow,
+.bestellijstRow {
+  overflow: hidden;
+  display: inline-block;
+}
+
+.menukaart,
+.bestellijst {
+  img {
+    width: 300px;
+    height: 200px;
+    object-fit: cover;
+  }
+  p {
+    padding-bottom: 20px;
+  }
+  @media (min-width: 640px) {
+    float: left;
+    padding: 0 15px;
+  }
+}
+.bestellijst {
+  img {
+    width: 300px;
+    height: 500px;
+  }
+}
+.textAlign {
+  padding: 0 30px;
+  h2 {
+    font-size: 30px;
+  }
+}
+.menuTitle {
+  font-size: 24px;
+  font-weight: 800;
+  font-style: italic;
+}
+.prijzen {
+  line-height: 2;
+  font-size: 18px;
+  font-weight: 800;
+  padding-bottom: 40px;
+  text-align: center;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
+    "Helvetica Neue", Arial, "Noto Sans", sans-serif, "Apple Color Emoji",
+    "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+}
+.remark {
+  font-size: 16px;
+  text-align: center;
+}
+
+.buttonSets {
+  text-align: center;
+  overflow: hidden;
+  margin-top: 150px;
+  @media (min-width: 640px) {
+    margin-top: 120px;
+  }
+
+  :global {
+    .ant-btn-dangerous {
+      width: 260px;
+      height: 60px;
+      font-size: 25px;
+      font-weight: 700;
+      display: block;
+      padding-bottom: 10px;
+      margin: 0 auto 20px auto;
+      @media (min-width: 760px) {
+        width: 300px;
+        height: 90px;
+        font-size: 28px;
+        display: inline-block;
+        margin: 0 15px;
+      }
+    }
+    .ant-btn-dangerous span {
+      vertical-align: middle;
+    }
+  }
+}
+
+.bestellen {
+  :global {
+    .ant-btn-dangerous {
+      @media (max-width: 760px) {
+        animation: backInDown;
+        animation-duration: 1.5s;
+      }
+      @media (min-width: 760px) {
+        animation: backInLeft;
+        animation-duration: 1.5s;
+      }
+    }
+  }
+}
+.reseveren {
+  :global {
+    .ant-btn-dangerous {
+      @media (max-width: 760px) {
+        animation: backInUp;
+        animation-duration: 1.5s;
+      }
+      @media (min-width: 760px) {
+        animation: backInRight;
+        animation-duration: 1.5s;
+      }
+    }
+  }
+}
+
+.form_case {
+  margin: 40px auto;
+  padding: 20px;
+  border-style: solid;
+  border-width: 20px 15px;
+  border-color: darkcyan;
+}
+.confirmation_case {
+  margin: 40px auto;
+  padding: 20px;
+  border-style: solid;
+  border-width: 20px 15px;
+  border-color: burlywood;
+  font-size: 20px;
+  font-weight: 700;
+}
+
+.hide {
+  @media (max-width: 640px) {
+    display: none;
+  }
+}
+
+.case_of_categories {
+  overflow: hidden;
+  height: 90vh;
+  float: left;
+  @media (min-width: 640px) {
+    width: 20%;
+    margin-right: 5%;
+  }
+}
+
+.notFound {
+  color: rgba(0, 0, 0, 0.7);
+  font-size: 30px;
+  font-weight: 800;
+  text-transform: uppercase;
+  padding-top: 50px;
+  min-height: 200px;
+  text-align: center;
+  margin: auto;
+}
+
+.bezorginsinfoAffix {
+  :global {
+    .ant-affix {
+      left: 0;
+      z-index: 20;
+    }
+  }
+}

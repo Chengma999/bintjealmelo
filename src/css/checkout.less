@@ -1,0 +1,113 @@
+@import "./variables.less";
+
+// .customHeader{
+//   @customHeader();
+// }
+.full {
+  width: 100%;
+  margin: 0 auto;
+  padding-bottom: 20px;
+  margin-bottom: 20px;
+  @media (min-width: 640px) {
+    padding-bottom: 0px;
+    margin-bottom: 0px;
+  }
+}
+.fullTitle {
+  @fullTitle();
+  .bestelling {
+    @firstRowTitle();
+  }
+}
+
+.fullTitle::after {
+  @titleDivider();
+}
+.customHeader {
+  @customHeader();
+}
+.background {
+  @background();
+}
+.homeBackground {
+  @homeBackground();
+}
+
+.background::after {
+  @backgroundAfter();
+}
+.homeBackground::after {
+  @homeBackgroundAfter();
+}
+.checkoutForm {
+  width: 100%;
+  float: left;
+  :global {
+    .ant-radio-wrapper {
+      color: #121212;
+      font-size: 16px;
+      font-weight: 400;
+      text-transform: uppercase;
+    }
+  }
+  @media (min-width: 640px) {
+    width: 70%;
+  }
+}
+
+.layoutBackground {
+  :global {
+    .ant-layout {
+      background: transparent;
+    }
+  }
+}
+.subBackground1,
+.subBackground2,
+.subBackground {
+  margin-top: 50px;
+  margin-bottom: 20px;
+  min-height: 200px;
+  background: url("../assets/sub-background.jpg") no-repeat;
+  -webkit-filter: grayscale(100%);
+  opacity: 0.9;
+  filter: rgb(155, 149, 149);
+  background-size: cover;
+  width: 100%;
+  background-position: center center;
+  background-attachment: fixed;
+  box-shadow: 0px 5px 15px 4px rgba(0, 0, 0, 0.2);
+  z-index: -1;
+}
+.subBackground1 {
+  background: url("../assets/sub-background1.jpg") no-repeat;
+  background-attachment: fixed;
+  background-size: cover;
+  background-position: center center;
+  min-height: 250px;
+  -webkit-filter: none;
+  opacity: 1;
+}
+.subBackground2 {
+  background: url("../assets/sub-background2.jpg") no-repeat;
+  background-attachment: fixed;
+  background-size: cover;
+  background-position: center center;
+  background-attachment: fixed;
+  -webkit-filter: none;
+  opacity: 1;
+}
+.iframe {
+  margin-top: 40px;
+  text-align: center;
+  iframe {
+    width: 80vw;
+    height: 300px;
+  }
+  @media (min-width: 640px) {
+    iframe {
+      width: 80vw;
+      height: 506px;
+    }
+  }
+}

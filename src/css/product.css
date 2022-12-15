@@ -1,0 +1,38 @@
+.afteradd {
+  animation-name: axxx;
+  animation-duration: 0.5s;
+}
+
+.afteradd:hover {
+  cursor: pointer;
+}
+.winkelwagenAfteradd {
+  animation-name: winkelwagen;
+  animation-duration: 1s;
+}
+@keyframes axxx {
+  0% {
+    background-color: transparent;
+  }
+
+  50% {
+    background-color: rgb(228, 137, 2);
+  }
+
+  100% {
+    background-color: transparent;
+  }
+}
+
+@keyframes winkelwagen {
+  0% {
+  }
+
+  50% {
+    font-size: 24px;
+    font-weight: 800;
+  }
+
+  100% {
+  }
+}

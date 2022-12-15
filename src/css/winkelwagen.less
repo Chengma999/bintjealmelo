@@ -1,0 +1,353 @@
+@import "./variables";
+@cartItemMobile: {
+  color: white;
+  text-transform: initial;
+  font-weight: 400;
+  font-size: 12px;
+  word-break: normal;
+};
+
+:global {
+  .wagen_winkelwagenTitle {
+    @media (min-width: 640px) {
+      padding-left: 20px;
+    }
+    h2 span {
+      text-transform: uppercase;
+      font-size: 20px;
+      width: 100%;
+      height: 100%;
+      font-weight: 600;
+      color: #fff;
+      line-height: 60px;
+
+      @media (min-width: 640px) {
+        color: #121212;
+        cursor: auto;
+        line-height: normal;
+      }
+    }
+  }
+}
+
+.winkelwagenContainer {
+  padding-top: 10px;
+  font-size: 12px;
+  font-family: "Open Sans";
+  .emptyMessage h3 {
+    color: white;
+    @media (min-width: 640px) {
+      font-size: 100%;
+      font-weight: normal;
+      font-size: 12px;
+      color: #121212;
+    }
+  }
+
+  :global {
+    .basket_basketLevering {
+      width: 100%;
+      display: flex;
+      padding-top: 16px;
+      padding-bottom: 8px;
+      border-top: 1px solid #121212;
+      -webkit-box-align: center;
+      align-items: center;
+    }
+    .basket_basketTransactiekosten,
+    .basket_discount,
+    .basket_basketOnlyTransactiekosten {
+      width: 100%;
+      display: flex;
+      padding-bottom: 16px;
+      -webkit-box-align: center;
+      align-items: center;
+    }
+    .basket_discount {
+      padding-top: 10px;
+      padding-bottom: 0;
+      color: red;
+      font-size: 14px;
+      font-weight: 600;
+    }
+    .basket_basketOnlyTransactiekosten {
+      padding-top: 16px;
+      border-top: 1px solid #121212;
+    }
+    .basket_basketLeveringName {
+      width: 100%;
+      text-align: left;
+    }
+    .basket_basketLeveringPrice {
+      min-width: 50px;
+      text-align: right;
+    }
+    .basket_basketWarningName {
+      width: 100%;
+      color: #380;
+      font-weight: 600;
+    }
+    .basket_basketWarningPrice {
+      min-width: 50px;
+      text-align: right;
+      color: #380;
+      font-weight: 600;
+    }
+
+    .basket_total {
+      width: 100%;
+      display: inline-block;
+      padding: 16px 0;
+      -webkit-box-align: center;
+      align-items: center;
+      font-size: 18px;
+      font-weight: 600;
+      color: #555;
+
+      .basket_totalPrice {
+        text-align: right;
+        float: right;
+      }
+    }
+  }
+  .subButton {
+    margin: 30px 0;
+    padding: 0 26px;
+    :global {
+      .ant-btn-primary {
+        text-transform: uppercase;
+        height: 50px;
+        font-size: 20px;
+        font-weight: 600;
+        box-shadow: 0 2px 2px rgba(0, 0, 0, 0.2);
+      }
+    }
+  }
+}
+
+:global {
+  .cartSum {
+    @cartSum();
+    // border-bottom: 1px solid #121212;
+    .cartSumRow {
+      display: flex;
+      width: 100%;
+      font-size: 12px;
+      font-weight: 600;
+      color: red;
+      white-space: nowrap;
+      padding: 10px 0;
+    }
+    .cartSumSubtotal {
+      display: flex;
+      width: 100%;
+      font-size: 16px;
+      font-weight: 600;
+      padding-top: 16px;
+    }
+    .cartSumBorder {
+      border-top: 1px solid #121212;
+    }
+    .cartSumName {
+      width: 100%;
+    }
+    .cartSumPrice {
+      min-width: 50px;
+      text-align: right;
+    }
+    .cartButton {
+      padding: 0 16px;
+      margin-top: 30px;
+    }
+  }
+}
+
+:global {
+  .wagen_cartItem {
+    width: 100%;
+    padding-bottom: 6px;
+    float: left;
+
+    .wagen_itemQuantity {
+      @media (min-width: 640px) {
+        padding-right: 5%;
+        // width:32px;
+        width: 10%;
+        float: left;
+        text-align: left;
+      }
+    }
+
+    .wagen_itemPrice {
+      width: 25%;
+      float: left;
+      margin-left: 5%;
+      text-align: right;
+    }
+    .wagen_itemTitle {
+      width: 60%;
+      text-align: left;
+      float: left;
+    }
+    .wagen_icons {
+      padding-bottom: 4px;
+      width: 100%;
+      float: left;
+      button {
+        border: 0;
+        padding: 0;
+        outline: none;
+        background: inherit;
+      }
+    }
+    .wagen_plusminIcon {
+      font-size: 18px;
+      // position:absolute;
+      vertical-align: -0.25em;
+      margin-left: 4px;
+      cursor: pointer;
+    }
+  }
+}
+.drawerRow,
+.drawerContent {
+  text-transform: uppercase;
+  position: fixed;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  font-size: 20px;
+  font-weight: 600;
+  background-color: black;
+  color: white;
+  text-align: center;
+  line-height: 60px;
+}
+.drawerRow {
+  z-index: 5;
+}
+.drawerContent {
+  overflow: auto;
+  div button i {
+    color: white;
+  }
+  :global {
+    .ant-drawer-content {
+      background: black;
+    }
+    .ant-drawer-close {
+      color: white;
+    }
+    .ant-drawer-title {
+      color: white;
+      font-size: 20px;
+      font-weight: 600;
+    }
+    .ant-drawer-header,
+    .ant-drawer-wrapper-body {
+      background: black;
+    }
+    .wagen_winkelwagenTitle {
+      display: none;
+    }
+    .wagen_cartItem {
+      color: white;
+      @cartItemMobile();
+    }
+    .wagen_icons {
+      text-align: left;
+      width: 100%;
+      float: left;
+    }
+    .wagen_itemQuantity {
+      width: 10%;
+      float: left;
+      text-align: left;
+    }
+    .wagen_itemTitle {
+      width: 60%;
+      text-align: left;
+      float: left;
+    }
+    .wagen_itemPrice {
+      width: 25%;
+      float: left;
+      text-align: right;
+    }
+    .cartSum {
+      @cartSum();
+      border-color: white;
+    }
+    .cartSumRow {
+      @cartItemMobile();
+      color: red;
+      font-size: 12px;
+      font-weight: 600;
+    }
+    .cartSumBorder {
+      border-color: white;
+    }
+    .cartSumSubtotal {
+      @cartItemMobile();
+      font-weight: 600;
+      font-size: 16px;
+    }
+    .cartSumName {
+      text-align: left;
+    }
+    .basket_basketLevering,
+    .basket_basketTransactiekosten,
+    .basket_basketOnlyTransactiekosten {
+      border-color: white;
+      color: white;
+      font-weight: 500;
+    }
+    .basket_basketLeveringName {
+      width: 100%;
+      text-align: left;
+    }
+    .basket_basketLeveringPrice {
+      min-width: 50px;
+      text-align: right;
+    }
+    .basket_basketWarningName {
+      width: 100%;
+      color: white;
+      text-align: left;
+      font-weight: 600;
+      text-transform: initial;
+    }
+    .basket_basketWarningPrice {
+      min-width: 50px;
+      text-align: right;
+      color: white;
+      font-weight: 600;
+    }
+    .basket_total {
+      border-color: white;
+      color: white;
+      text-align: left;
+    }
+    .basket_border {
+      border-color: white;
+    }
+  }
+}
+@media (max-width: 640px) {
+  .wagen_cartItemDescription {
+    height: 18px;
+  }
+}
+.uppercase {
+  text-transform: uppercase;
+  font-weight: 800;
+  @media (max-width: 640px) {
+    padding-top: 20px;
+  }
+}
+
+:global {
+  .basket_border {
+    border-top: 1px solid #121212;
+  }
+}

@@ -1,0 +1,40 @@
+{
+  "lang": {
+    "locale": "nl_NL",
+    "placeholder": "Selecteer datum",
+    "rangePlaceholder": ["Start datum", "Eind datum"],
+    "today": "Vandaag",
+    "now": "Nu",
+    "backToToday": "Terug naar vandaag",
+    "ok": "Ok",
+    "clear": "Clear",
+    "month": "Maand",
+    "year": "Jaar",
+    "timeSelect": "Selecteer tijd",
+    "dateSelect": "Selecteer datum",
+    "monthSelect": "Kies een maand",
+    "yearSelect": "Kies een jaar",
+    "decadeSelect": "Choose a decade",
+    "yearFormat": "YYYY",
+    "dateFormat": "D/M/YYYY",
+    "dayFormat": "D",
+    "dateTimeFormat": "M/D/YYYY HH:mm:ss",
+    "monthFormat": "MMMM",
+    "monthBeforeYear": true,
+    "previousMonth": "Previous month (PageUp)",
+    "nextMonth": "Next month (PageDown)",
+    "previousYear": "Last year (Control + left)",
+    "nextYear": "Next year (Control + right)",
+    "previousDecade": "Last decade",
+    "nextDecade": "Next decade",
+    "previousCentury": "Last century",
+    "nextCentury": "Next century"
+  },
+  "timePickerLocale": {
+    "placeholder": "Select time"
+  },
+  "dateFormat": "DD-MM-YYYY",
+  "dateTimeFormat": "DD-MM-YYYY HH:mm:ss",
+  "weekFormat": "YYYY-wo",
+  "monthFormat": "YYYY-MM"
+}

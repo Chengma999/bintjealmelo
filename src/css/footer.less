@@ -1,0 +1,105 @@
+.container {
+  width: 80%;
+  max-width: 1020px;
+  margin: 0 auto;
+  :global {
+    h3 {
+      color: white;
+    }
+    p {
+      color: white;
+    }
+  }
+  @media (min-width: 640px) {
+    display: block;
+  }
+}
+
+@common: {
+  clear: both;
+  width: 100%;
+  float: left;
+  text-align: center;
+  @media (min-width: 730px) {
+    width: 33%;
+    float: left;
+    clear: none;
+    text-align: left;
+  }
+  h3 {
+    text-transform: uppercase;
+    font-weight: 600;
+    font-size: 18px;
+  }
+};
+
+.contact,
+.links,
+.socialMedia {
+  @common();
+}
+.links a {
+  color: white;
+  text-decoration: underline;
+}
+.buttonWidget {
+  padding: 0px;
+  margin-bottom: 20px;
+  color: white;
+  :global {
+    .ant-btn {
+      border: 0px;
+    }
+  }
+}
+@socialMediaLink: {
+  padding-left: 10px;
+  padding-right: 10px;
+  padding-bottom: 0.1px;
+  text-align: center;
+  color: #fff;
+  font-size: 16px;
+  font-weight: normal;
+  text-transform: uppercase;
+  font-family: "Open Sans", sans-serif;
+  vertical-align: baseline;
+  height: 45px;
+};
+.facebook {
+  @socialMediaLink();
+  background-color: #335b97;
+}
+.instagram {
+  margin-top: 10px;
+  @socialMediaLink();
+  background-color: #1371fa;
+}
+.socialMedia {
+  :global {
+    a.ant-btn {
+      line-height: 40px;
+    }
+  }
+}
+
+.background {
+  @media (max-width: 640px) {
+    // display: none;
+  }
+  :global {
+    .ant-layout-footer {
+      background: #8a0c0c;
+    }
+  }
+}
+
+.backgroundPurple {
+  @media (max-width: 640px) {
+    // display: none;
+  }
+  :global {
+    .ant-layout-footer {
+      background: #6f1c75;
+    }
+  }
+}

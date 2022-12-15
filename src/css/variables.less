@@ -1,0 +1,108 @@
+@fullTitle: {
+  font-family: "Open Sans";
+  text-align: center;
+  text-transform: uppercase;
+  font-size: 20pt;
+  font-weight: 600;
+  color: #000000;
+  margin-bottom: 12px;
+  line-height: 23px;
+  padding: 30px;
+  @media (min-width: 640px) {
+    font-size: 30pt;
+    line-height: 33px;
+  }
+};
+@firstRowTitle: {
+  font-weight: 400;
+  display: block;
+};
+@titleDivider: {
+  content: "";
+  border: 0.6px solid #eee;
+  display: block;
+  margin: 0 auto;
+  margin-top: 12px;
+  width: 60%;
+};
+@customHeader: {
+  :global {
+    .ant-layout-header {
+      background: transparent;
+      height: 210px;
+      @media (min-width: 640px) {
+        height: 450px;
+      }
+      text-align: center;
+    }
+    .ant-menu {
+      background: transparent;
+    }
+    .ant-menu-item {
+      color: white;
+      font-size: 16px;
+    }
+    .ant-menu-horizontal {
+      border-bottom: 0px solid #e8e8e8;
+    }
+
+    background: transparent;
+  }
+};
+@homeHeader: {
+  @customHeader();
+
+  :global {
+    .ant-layout-header {
+      height: 420px;
+      @media (min-width: 640px) {
+        height: 600px;
+      }
+    }
+  }
+};
+
+@background: {
+  background: url("../assets/background.jpg") no-repeat;
+  background-size: cover;
+  background-position: center center;
+  width: 100%;
+  height: 420px;
+  position: fixed;
+  top: 0px;
+  left: 0px;
+  z-index: -1;
+};
+@homeBackground: {
+  @background();
+  @media (min-width: 640px) {
+    width: 100%;
+    height: 600px;
+  }
+};
+
+@backgroundAfter: {
+  content: "";
+  background-image: linear-gradient(
+    rgba(0, 0, 0, 0.7),
+    rgba(0, 0, 0, 0.5),
+    rgba(0, 0, 0, 0.3),
+    rgba(0, 0, 0, 0.2)
+  );
+  height: 420px;
+  width: 100%;
+  position: absolute;
+  z-index: 2;
+};
+@homeBackgroundAfter: {
+  @backgroundAfter();
+  height: 600px;
+};
+@cartSum: {
+  width: 100%;
+  display: flex;
+  padding-bottom: 16px;
+  // border-top: 1px solid #121212;
+  -webkit-box-align: center;
+  align-items: center;
+}; ; ; ; ; ; ; ; ; ; ; ;
