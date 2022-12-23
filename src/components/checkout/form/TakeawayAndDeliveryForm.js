@@ -289,7 +289,6 @@ const TakeawayAndDeliveryForm = (props) => {
           `/api/submit/${restaurant_id}`,
           values
         );
-        console.log(values);
         link = await changeURLArg(link, "totalPrice", basket.checkoutPrice);
         link = await changeURLArg(link, "orderType", orderType);
         if (orderType === "afhalen") {

@@ -248,7 +248,7 @@ function BulkOperationForm({
         <Form.Item
           name="menukind"
           label={CapitalizeFC(t("group"))}
-          rules={rules.endId}
+          rules={rules.menukind}
         >
           <Select mode="multiple" allowClear>
             {menukindOptions}
