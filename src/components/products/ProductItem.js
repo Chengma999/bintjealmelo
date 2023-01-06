@@ -21,7 +21,12 @@ message.config({
   maxCount: 1,
   getContainer: () => root,
 });
-
+const NotAvailableMsg = (
+  <div>
+    Wegens omstandigheden kunnen we al de online bestellingen niet verwerken.
+    Sorry voor het ongemak.
+  </div>
+);
 const closeMsg = (obj) => {
   const { extra_closed, text, history } = obj;
   if (extra_closed.closed) {
@@ -41,6 +46,7 @@ const closeMsg = (obj) => {
       </div>
     );
   }
+
   return (
     <div>
       Op {text} zijn we gesloten.
@@ -72,6 +78,7 @@ const handleClick = (obj) => {
     extra,
     openingstijden,
     _closeday,
+    afhaalstatus,
   } = obj;
   const closedayInstance = new CloseDays(_closeday, openingstijden);
   const extra_closed = closedayInstance.extra_closed();
@@ -84,6 +91,8 @@ const handleClick = (obj) => {
   if (extra_closed.closed || normal_closed) {
     warning(closeMsg({ extra_closed, text: day.text, history }));
     return;
+  } else if (!afhaalstatus) {
+    warning(NotAvailableMsg);
   } else if (
     !price_half &&
     ((typeof menuKind === "string" && menuKind === "withoutOption") ||
@@ -193,6 +202,7 @@ function ProductItem(props) {
     allergy,
     openingstijden,
     _closeday,
+    afhaalstatus,
   } = props;
   data = (
     <div
@@ -313,6 +323,7 @@ function ProductItem(props) {
           productCategorie,
           extra,
           _closeday,
+          afhaalstatus,
           openingstijden,
         })
       }

@@ -287,6 +287,7 @@ const ProductContainer = ({
                 themeColor={basicinfo.themeColor}
                 openingstijden={basicinfo.openingstijden}
                 _closeday={basicinfo._closeday}
+                afhaalstatus={basicinfo.afhaalstatus}
               />
             );
           }

@@ -25,6 +25,7 @@ export default {
     mainCategories: [],
     checkbox: [],
     bezorgstatus: true,
+    afhaalstatus: true,
     paybycash: false,
     closeday: [],
     _closeday: [],
