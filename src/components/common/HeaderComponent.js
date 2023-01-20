@@ -92,7 +92,7 @@ const HeaderComponent = ({
           </Link>
         )}
       </span>
-    ) : (
+    ) : gegevens.homePage && !onlinebestellenIsEnabled ? (
       <span className={styles.bestellen}>
         <Link to={"/menulijst"}>
           <Button
@@ -109,22 +109,23 @@ const HeaderComponent = ({
           </Button>
         </Link>
       </span>
-    );
-  const reserverenbutton = reservationIsEnabled ? (
-    <span className={styles.reseveren}>
-      <Link to="/reserveren">
-        <Button
-          type="primary"
-          danger
-          icon={
-            <NewIconFont type="icon-calender" className={styles.iconMenu} />
-          }
-        >
-          {t("Reserveren")}
-        </Button>
-      </Link>
-    </span>
-  ) : null;
+    ) : null;
+  const reserverenbutton =
+    gegevens.homePage && reservationIsEnabled ? (
+      <span className={styles.reseveren}>
+        <Link to="/reserveren">
+          <Button
+            type="primary"
+            danger
+            icon={
+              <NewIconFont type="icon-calender" className={styles.iconMenu} />
+            }
+          >
+            {t("Reserveren")}
+          </Button>
+        </Link>
+      </span>
+    ) : null;
   const menu = (mode) => {
     const jobOfferPage = isEnabled ? (
       <Menu.Item key="Werken bij ons">
