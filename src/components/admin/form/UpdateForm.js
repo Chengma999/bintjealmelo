@@ -10,6 +10,7 @@ import {
   Result,
   Radio,
   Checkbox,
+  Space,
 } from "antd";
 import { useTranslation } from "react-i18next";
 import { LoadingOutlined, SettingOutlined } from "@ant-design/icons";
@@ -62,10 +63,12 @@ const UpdateForm = ({
   loading,
   showGroepdnd,
   setShowGroepdnd,
+  pictures,
 }) => {
   const [duplicatedId, setDuplicatedId] = useState(false);
   const [errText, setErrText] = useState("");
   const [usedAtValue, setUsedAtValue] = useState("afhalen/bezorgen");
+  const [useImgMethod, setUseImgMethod] = useState("pictures_library");
   const [form] = Form.useForm();
   const { t } = useTranslation();
   const discountArr = generateDiscountArr(item.price);
@@ -197,12 +200,42 @@ const UpdateForm = ({
   const handleChange = (usedAtValue) => {
     setUsedAtValue(usedAtValue);
   };
+  const handleRadioChange = (e) => {
+    setUseImgMethod(e.target.value);
+  };
   const onDelete = (e) => {
     const { id, categorie } = item;
 
     e.preventDefault();
     deleteInDb({ id, categorie, restaurant_id });
   };
+  const picsOptions = pictures.map((pic, index) => {
+    const removeFileExtension = (fileName) =>
+      fileName.split(".").slice(0, -1).join(".");
+    return (
+      <Option
+        key={index}
+        value={
+          "https://hisight-afbeeldingen.s3.eu-central-1.amazonaws.com/" +
+          pic.Key
+        }
+      >
+        <Space>
+          <span>
+            <img
+              alt={pic.Key}
+              width={70}
+              src={
+                "https://hisight-afbeeldingen.s3.eu-central-1.amazonaws.com/" +
+                pic.Key
+              }
+            />{" "}
+          </span>
+          <span>{removeFileExtension(pic.Key)}</span>
+        </Space>
+      </Option>
+    );
+  });
   let optionsArr = (arr) => {
     if (Array.isArray(arr)) {
       const newarr = [...arr];
@@ -263,6 +296,15 @@ const UpdateForm = ({
       setUsedAtValue(
         item.usedAt.length === 0 ? ["afhalen/bezorgen"] : item.usedAt
       );
+      console.log(
+        (item.img_url || "").includes("https://hisight-afbeeldingen")
+      );
+      if ((item.img_url || "").includes("https://hisight-afbeeldingen")) {
+        setUseImgMethod("pictures_library");
+      } else {
+        setUseImgMethod("img_url");
+      }
+      console.log(useImgMethod);
     }
   }, [item.id]);
   return showGroepdnd ? (
@@ -363,13 +405,36 @@ const UpdateForm = ({
       >
         <Input />
       </Form.Item>
-      <Form.Item
-        name="img_url"
-        label={CapitalizeFC(t("image_url"))}
-        rules={rules.img_url}
+      <div
+        style={{
+          padding: "10px 10px 40px 15px",
+          textTransform: "uppercase",
+        }}
       >
-        <Input />
-      </Form.Item>
+        <Radio.Group onChange={handleRadioChange} value={useImgMethod}>
+          <Radio value={"pictures_library"}>Afbeelding bibliotheek</Radio>
+          <Radio value={"img_url"}>Afbeelding URL </Radio>
+        </Radio.Group>
+      </div>
+      {useImgMethod === "pictures_library" ? (
+        <Form.Item
+          name="img_url"
+          label="Kies afbeelding "
+          rules={rules.img_url}
+        >
+          <Select
+            style={{ width: "100%" }}
+            optionLabelProp="label"
+            placeholder="selecteer een afbeelding"
+          >
+            {picsOptions}
+          </Select>
+        </Form.Item>
+      ) : (
+        <Form.Item name="img_url" label="Image URL" rules={rules.img_url}>
+          <Input />
+        </Form.Item>
+      )}
       <Form.Item name="extra" label="Extra's" rules={rules.extra}>
         <Radio.Group>
           <Radio value={true}>{CapitalizeFC(t("display"))}</Radio>

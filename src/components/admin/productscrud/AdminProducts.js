@@ -169,6 +169,7 @@ class AdminProducts extends Component {
           products={products}
           options={basicinfo.options}
           printgroups={basicinfo.printgroups}
+          pictures={basicinfo.pictures}
         />
         <BulkOperation
           addInDb={addInDb}
@@ -405,6 +406,7 @@ class AdminProducts extends Component {
             printgroups={basicinfo.printgroups}
             showGroepdnd={showGroepdnd}
             setShowGroepdnd={this.setShowGroepdnd}
+            pictures={basicinfo.pictures}
           />
         </Modal>
         <Modal

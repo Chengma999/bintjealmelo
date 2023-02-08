@@ -12,6 +12,7 @@ export default function AddNewItem({
   products,
   options,
   printgroups,
+  pictures,
 }) {
   const [visible, setVisible] = useState(false);
   const [form] = Form.useForm();
@@ -70,6 +71,7 @@ export default function AddNewItem({
           form={form}
           showResult={showResult}
           setShowResult={setShowResult}
+          pictures={pictures}
           t={t}
         />
       </Modal>

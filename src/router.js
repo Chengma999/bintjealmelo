@@ -29,7 +29,6 @@ import gegevens from "Utilities/gegevens";
 import ScrollToTop from "Utilities/ScrollToTop";
 
 function RouterConfig(props) {
-  console.log(props);
   const homePage = gegevens.homePage ? (
     <Route path="/" exact component={HomePage} />
   ) : (

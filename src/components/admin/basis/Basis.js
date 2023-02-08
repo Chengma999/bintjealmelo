@@ -7,7 +7,7 @@ import AfhaaltextForm from "../overige/AfhaaltextForm";
 import { useTranslation } from "react-i18next";
 import styles from "../admin.less";
 import LanguageSwitcher from "../../common/LanguageSwitcher";
-
+import UploadComponent from "./UploadComponent";
 import {
   updateResAddress,
   updateResPostcode,
@@ -38,6 +38,7 @@ function Basis(props) {
     updateResPostcode,
     updateResMail,
     updateResTelnr,
+    username,
   } = props;
   const data = [
     {
@@ -102,6 +103,9 @@ function Basis(props) {
           pagination={false}
           bordered
         />
+      </div>
+      <div style={{ padding: "30px 10%" }}>
+        <UploadComponent username={username} />
       </div>
     </div>
   );

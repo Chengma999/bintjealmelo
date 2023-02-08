@@ -77,6 +77,7 @@ export default {
     concept: { isEnabled: false, introduction: undefined },
     restaurant: { isEnabled: false, text: undefined },
     printgroups: [],
+    pictures: [],
   },
 
   subscriptions: {
@@ -109,6 +110,10 @@ export default {
         ) {
           dispatch({ type: "fetch" });
         }
+
+        if (pathname.includes("/admin/products")) {
+          dispatch({ type: "fetchPictures" });
+        }
       });
     },
   },
@@ -128,6 +133,17 @@ export default {
         return;
       } catch (err) {
         yield put({ type: "fetch/error", error: err.message });
+        console.log(err);
+      }
+    },
+    *fetchPictures({ payload }, { call, put, select }) {
+      try {
+        const { data } = yield call(axios.get, `/api/basis/getPictures`);
+        console.log(data);
+        yield put({ type: "fetch/pictures/save", pictures: data });
+        return data;
+      } catch (err) {
+        yield put({ type: "fetch/pictures/error", error: err.message });
         console.log(err);
       }
     },
@@ -201,6 +217,10 @@ export default {
       remainState.password = state.password;
       return { ...state, ...basicinfo, ...remainState };
     },
+    "fetch/pictures/save"(state, { pictures }) {
+      return { ...state, pictures: pictures?.data?.Contents };
+    },
+
     "categories/updateCategorie"(state, { categories }) {
       return { ...state, categories };
     },

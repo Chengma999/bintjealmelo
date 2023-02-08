@@ -9,6 +9,7 @@ import {
   Result,
   Radio,
   Checkbox,
+  Space,
 } from "antd";
 import { LoadingOutlined } from "@ant-design/icons";
 import gegevens from "Utilities/gegevens";
@@ -60,10 +61,12 @@ const AddForm = ({
   form,
   showResult,
   setShowResult,
+  pictures,
   t,
 }) => {
   const [duplicatedId, setDuplicatedId] = useState(false);
   const [usedAtValue, setUsedAtValue] = useState(["afhalen/bezorgen"]);
+  const [useImgMethod, setUseImgMethod] = useState("pictures_library");
   const rules = {
     id: [
       {
@@ -192,6 +195,9 @@ const AddForm = ({
   const handleChange = (usedAtValue) => {
     setUsedAtValue(usedAtValue);
   };
+  const handleRadioChange = (e) => {
+    setUseImgMethod(e.target.value);
+  };
   const handleSubmit = (values) => {
     // values.price = Number(values.price);
     values.restaurant_id = restaurant_id;
@@ -227,6 +233,33 @@ const AddForm = ({
       return newarr;
     }
   };
+  const picsOptions = pictures.map((pic, index) => {
+    const removeFileExtension = (fileName) =>
+      fileName.split(".").slice(0, -1).join(".");
+    return (
+      <Option
+        key={index}
+        value={
+          "https://hisight-afbeeldingen.s3.eu-central-1.amazonaws.com/" +
+          pic.Key
+        }
+      >
+        <Space>
+          <span>
+            <img
+              alt={pic.Key}
+              width={70}
+              src={
+                "https://hisight-afbeeldingen.s3.eu-central-1.amazonaws.com/" +
+                pic.Key
+              }
+            />{" "}
+          </span>
+          <span>{removeFileExtension(pic.Key)}</span>
+        </Space>
+      </Option>
+    );
+  });
   optionsArr = optionsArr(options).map((item, i) => (
     <option key={i} value={item.title}>
       {item.title}
@@ -342,9 +375,36 @@ const AddForm = ({
       >
         <Input />
       </Form.Item>
-      <Form.Item name="img_url" label="Image URL" rules={rules.img_url}>
-        <Input />
-      </Form.Item>
+      <div
+        style={{
+          padding: "10px 10px 40px 15px",
+          textTransform: "uppercase",
+        }}
+      >
+        <Radio.Group onChange={handleRadioChange} value={useImgMethod}>
+          <Radio value={"pictures_library"}>Afbeelding bibliotheek</Radio>
+          <Radio value={"img_url"}>Afbeelding URL </Radio>
+        </Radio.Group>
+      </div>
+      {useImgMethod === "pictures_library" ? (
+        <Form.Item
+          name="img_url"
+          label="Kies afbeelding "
+          rules={rules.img_url}
+        >
+          <Select
+            style={{ width: "100%" }}
+            optionLabelProp="label"
+            placeholder="selecteer een afbeelding"
+          >
+            {picsOptions}
+          </Select>
+        </Form.Item>
+      ) : (
+        <Form.Item name="img_url" label="Image URL" rules={rules.img_url}>
+          <Input />
+        </Form.Item>
+      )}
       <Form.Item name="extra" label="Extra's" rules={rules.extra}>
         <Radio.Group>
           <Radio value={true}>{CapitalizeFC(t("display"))}</Radio>
