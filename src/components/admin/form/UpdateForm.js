@@ -182,7 +182,6 @@ const UpdateForm = ({
     values.oldId = item.id;
     values._id = item._id;
     values.restaurant_id = restaurant_id;
-    console.log("Received values of form: ", values);
     updateInDb(values).then((res) => {
       if (res.err) {
         setDuplicatedId(true);
@@ -279,7 +278,6 @@ const UpdateForm = ({
     );
   });
   useEffect(() => {
-    console.log(item);
     if (JSON.stringify(item) !== "{}") {
       form.resetFields();
       form.setFieldsValue({
@@ -296,15 +294,12 @@ const UpdateForm = ({
       setUsedAtValue(
         item.usedAt.length === 0 ? ["afhalen/bezorgen"] : item.usedAt
       );
-      console.log(
-        (item.img_url || "").includes("https://hisight-afbeeldingen")
-      );
+
       if ((item.img_url || "").includes("https://hisight-afbeeldingen")) {
         setUseImgMethod("pictures_library");
       } else {
         setUseImgMethod("img_url");
       }
-      console.log(useImgMethod);
     }
   }, [item.id]);
   return showGroepdnd ? (
@@ -340,7 +335,6 @@ const UpdateForm = ({
           },
           () => ({
             validator(rule, value) {
-              console.log(value);
               if (
                 !value ||
                 value.includes("restaurant") ||

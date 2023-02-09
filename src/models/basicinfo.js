@@ -110,8 +110,7 @@ export default {
         ) {
           dispatch({ type: "fetch" });
         }
-
-        if (pathname.includes("/admin/products")) {
+        if (props.pathname.includes("/admin/products")) {
           dispatch({ type: "fetchPictures" });
         }
       });
@@ -139,7 +138,6 @@ export default {
     *fetchPictures({ payload }, { call, put, select }) {
       try {
         const { data } = yield call(axios.get, `/api/basis/getPictures`);
-        console.log(data);
         yield put({ type: "fetch/pictures/save", pictures: data });
         return data;
       } catch (err) {

@@ -87,7 +87,6 @@ const AddForm = ({
       },
       () => ({
         validator(rule, value) {
-          console.log(value);
           if (
             !value ||
             value.includes("restaurant") ||
