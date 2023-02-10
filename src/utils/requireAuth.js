@@ -22,7 +22,7 @@ export default function (ComposedComponent) {
           }
           if (!err) {
             this.setState({ username: decoded.username });
-            // console.log(decoded.exp, decoded.username);
+            localStorage.setItem("username", decoded.username);
           }
         }
       );

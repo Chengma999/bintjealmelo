@@ -110,7 +110,10 @@ export default {
         ) {
           dispatch({ type: "fetch" });
         }
-        if (props.pathname.includes("/admin/products")) {
+        if (
+          props.pathname.includes("/admin/products") ||
+          props.pathname.includes("/admin/basis")
+        ) {
           dispatch({ type: "fetchPictures" });
         }
       });
@@ -137,7 +140,10 @@ export default {
     },
     *fetchPictures({ payload }, { call, put, select }) {
       try {
-        const { data } = yield call(axios.get, `/api/basis/getPictures`);
+        const { data } = yield call(
+          axios.get,
+          `/api/basis/getPictures/${localStorage.getItem("username")}`
+        );
         yield put({ type: "fetch/pictures/save", pictures: data });
         return data;
       } catch (err) {
@@ -216,7 +222,15 @@ export default {
       return { ...state, ...basicinfo, ...remainState };
     },
     "fetch/pictures/save"(state, { pictures }) {
-      return { ...state, pictures: pictures?.data?.Contents };
+      return { ...state, pictures: pictures?.data };
+    },
+    "add/picture"(state, { payload }) {
+      const pictures = [...state.pictures, { Key: payload }];
+      return { ...state, pictures };
+    },
+    "delete/picture"(state, { payload }) {
+      const pictures = [...state.pictures].filter((pic) => pic.Key !== payload);
+      return { ...state, pictures };
     },
 
     "categories/updateCategorie"(state, { categories }) {

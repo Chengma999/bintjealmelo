@@ -392,6 +392,7 @@ const AddForm = ({
           rules={rules.img_url}
         >
           <Select
+            showSearch
             style={{ width: "100%" }}
             optionLabelProp="label"
             placeholder="selecteer een afbeelding"

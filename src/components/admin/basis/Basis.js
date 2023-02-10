@@ -14,7 +14,10 @@ import {
   updateResMail,
   updateResTelnr,
   updateThemeColor,
+  addPicture,
+  deletePicture,
 } from "../../../actions/index";
+import ImagesGallery from "./ImagesGallery";
 const columns = [
   {
     title: "",
@@ -39,6 +42,8 @@ function Basis(props) {
     updateResMail,
     updateResTelnr,
     username,
+    addPicture,
+    deletePicture,
   } = props;
   const data = [
     {
@@ -105,7 +110,13 @@ function Basis(props) {
         />
       </div>
       <div style={{ padding: "30px 10%" }}>
-        <UploadComponent username={username} />
+        <UploadComponent username={username} addPicture={addPicture} />
+      </div>
+      <div style={{ padding: "30px 10%" }}>
+        <ImagesGallery
+          pictures={basicinfo.pictures}
+          deletePicture={deletePicture}
+        />
       </div>
     </div>
   );
@@ -120,4 +131,6 @@ export default connect(mapStateToProps, {
   updateResPostcode,
   updateResMail,
   updateResTelnr,
+  addPicture,
+  deletePicture,
 })(Basis);

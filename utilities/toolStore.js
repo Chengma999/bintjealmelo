@@ -267,3 +267,5 @@ export const discountTimesArr = () => {
 export const changenumToPercent = (num) => {
   return Number.parseFloat(num * 100).toFixed(0) + "%";
 };
+export const removeFileExtension = (fileName) =>
+  fileName.split(".").slice(0, -1).join(".");

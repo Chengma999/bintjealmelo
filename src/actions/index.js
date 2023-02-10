@@ -133,3 +133,5 @@ export const updateRestaurantPage = createAction(
 export const updateThemeColor = createAction("basis/updateThemeColor");
 export const fetchBasicInfo = createAction("basicinfo/fetch");
 export const calTotalPrice = createAction("basket/calTotalPrice");
+export const addPicture = createAction("basicinfo/add/picture");
+export const deletePicture = createAction("basicinfo/delete/picture");
